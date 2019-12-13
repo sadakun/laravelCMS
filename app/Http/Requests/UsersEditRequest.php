@@ -25,8 +25,8 @@ class UsersEditRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required',
-            'email' => 'required',
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'max:255'],
             'role_id' => 'required',
         ];
     }

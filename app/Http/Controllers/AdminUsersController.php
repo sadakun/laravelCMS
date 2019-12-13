@@ -47,13 +47,10 @@ class AdminUsersController extends Controller
         // return $request->all();
         // User::create($request->all());
         // return redirect('/admin/users');
-        if (trim($request->password == '')) {
 
-            $input = $request->except('password');
-        } else {
-            $input = $request->all();
-            $input['password'] = bcrypt($request->password);
-        }
+        $input = $request->all();
+        $input['password'] = bcrypt($request->password);
+
 
         if ($file = $request->file('photo_id')) {
 
@@ -137,5 +134,7 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+        User::findOrFail($id)->delete();
+        return redirect('admin/users');
     }
 }

@@ -4,12 +4,12 @@
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Edit User</h1>
+            <h1><b>Edit</b> or <b>Delete</b> User</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">User Panel</a></li>
-                <li class="breadcrumb-item active">Edit User</li>
+                <li class="breadcrumb-item active">Edit or Delete User</li>
             </ol>
         </div>
     </div>
@@ -99,17 +99,26 @@
                                         {!! Form::label('name','Fullname') !!}
                                         {!! Form::text('name',null , ['class'=>'form-control','placeholder'=>'Enter Your
                                         Fullname']) !!}
+                                        @error('name')
+                                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('email','Email Address') !!}
                                         {!! Form::email('email',null ,
                                         ['class'=>'form-control','placeholder'=>'example@example.com'])
                                         !!}
+                                        @error('email')
+                                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('role_id','Role') !!}
                                         {!! Form::select('role_id', $roles, null, ['class'=>'form-control'])
                                         !!}
+                                        @error('role_id')
+                                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('status','Status') !!}
@@ -127,11 +136,7 @@
                                         {!! form::label('photo_id','Your Image') !!}
                                         {!! form::file('photo_id',['class'=>'form-control']) !!}
                                     </div>
-
                                 </div>
-
-
-
                                 @include('includes.error_form')
                             </div>
 
@@ -140,12 +145,22 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {!! Form::submit('Submit',['class'=>'btn btn-primary float-right']) !!}
+                    {!! Form::submit('Update',['class'=>'btn btn-success float-right']) !!}
+                    {!! Form::close() !!}
+
+                    {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy', $user->id]]) !!}
+                    {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+
                     <a href="{{route('users.index')}}">
-                        <input class="btn btn-default float-right" name="cancel" type="button" value="Cancel">
+                        <input class="btn btn-warning" name="cancel" type="button" value="Cancel">
                     </a>
+                    {!! Form::close() !!}
+
+
+
+
                 </div>
-                {!! Form::close() !!}
+
             </div>
         </div>
     </div>

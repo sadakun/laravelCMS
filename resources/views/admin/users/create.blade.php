@@ -32,16 +32,25 @@
                         {!! Form::label('name','Fullname') !!}
                         {!! Form::text('name',null , ['class'=>'form-control','placeholder'=>'Enter Your Fullname'])
                         !!}
+                        @error('name')
+                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         {!! Form::label('email','Email Address') !!}
                         {!! Form::email('email',null , ['class'=>'form-control','placeholder'=>'example@example.com'])
                         !!}
+                        @error('email')
+                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         {!! Form::label('role_id','Role') !!}
                         {!! Form::select('role_id', [''=>'Choose Options'] + $roles, null, ['class'=>'form-control'])
                         !!}
+                        @error('role_id')
+                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         {!! Form::label('status','Status') !!}
@@ -52,6 +61,9 @@
                         {!! Form::label('password','Password') !!}
                         {!! Form::password('password',['class'=>'form-control','placeholder'=>'Password'])
                         !!}
+                        @error('password')
+                        <div class="error" style="color:red">{{ "*".$message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         {!! form::label('photo_id','Your Image') !!}
@@ -59,14 +71,14 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {!! Form::submit('Submit',['class'=>'btn btn-info float-right']) !!}
+                    {!! Form::submit('Create',['class'=>'btn btn-primary float-right']) !!}
+                    {!! Form::close() !!}
 
                     <a href="{{route('users.index')}}">
-                        <input class="btn btn-default float-right" name="cancel" type="button" value="Cancel">
+                        <input class="btn btn-warning" name="cancel" type="button" value="Cancel">
                     </a>
                 </div>
 
-                {!! Form::close() !!}
 
             </div>
         </div>

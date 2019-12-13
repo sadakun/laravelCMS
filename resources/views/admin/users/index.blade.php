@@ -50,7 +50,7 @@
                                 <th>Active</th>
                                 <th>Created</th>
                                 <th>Updated</th>
-                                <th>Action</th>
+                                <th>More Info</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,10 +69,8 @@
                                 <td> {{$user->created_at->toCookieString()}} </td>
                                 <td> {{$user->updated_at->diffForHumans()}} </td>
                                 <td><a href="{{route('users.edit', $user->id)}}"><button type="submit"
-                                            class="btn btn-primary"><i class='fas fa-edit'></i></button></a>
-
-                                    <a href=""><button type="submit" class="btn btn-danger"><i
-                                                class='fas fa-trash'></i></button></a>
+                                            class="btn btn-block btn-sm btn-outline-primary"><i
+                                                class='fas fa-info'></i></button></a>
                             </tr>
                             @endforeach
                             @endif
