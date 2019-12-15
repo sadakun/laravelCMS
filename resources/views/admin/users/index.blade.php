@@ -1,15 +1,19 @@
 @extends('layouts.admin')
 @section('content-header')
+@if (Session::has('deleted_user'))
+{{session('deleted_user')}}
+
+@endif
 <!-- /.container-fluid -->
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>More User</h1>
+            <h1>Show All Users</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">User Panel</a></li>
-                <li class="breadcrumb-item active">More User</li>
+                <li class="breadcrumb-item active">Show All User</li>
             </ol>
         </div>
     </div>
@@ -68,9 +72,13 @@
                                 <td> {{$user->status == 1 ? 'Active' : 'Nonactive'}} </td>
                                 <td> {{$user->created_at->toCookieString()}} </td>
                                 <td> {{$user->updated_at->diffForHumans()}} </td>
-                                <td><a href="{{route('users.edit', $user->id)}}"><button type="submit"
-                                            class="btn btn-block btn-sm btn-outline-primary"><i
-                                                class='fas fa-info'></i></button></a>
+                                <td>
+                                    <a href="{{route('users.edit', $user->id)}}">
+                                        <button type="submit" class="btn btn-block btn-sm btn-outline-primary">
+                                            <i class='fas fa-info'></i>
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                             @endif

@@ -10,7 +10,8 @@
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
+  <!-- Theme style -->
+  {{-- <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}"> --}}
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -199,7 +200,7 @@
                 <li class="nav-item">
                   <a href="{{route('users.index')}}" class="nav-link">
                     <i class="fas fa-circle nav-icon"></i>
-                    <p>More User</p>
+                    <p>All Users</p>
                   </a>
                 </li>
               </ul>
@@ -208,6 +209,31 @@
                   <a href="{{route('users.create')}}" class="nav-link">
                     <i class="fas fa-circle nav-icon"></i>
                     <p>Add User</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user-alt"></i>
+                <p>
+                  Post Panel
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('posts.index')}}" class="nav-link">
+                    <i class="fas fa-circle nav-icon"></i>
+                    <p>All Posts</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('posts.create')}}" class="nav-link">
+                    <i class="fas fa-circle nav-icon"></i>
+                    <p>Add Post</p>
                   </a>
                 </li>
               </ul>
