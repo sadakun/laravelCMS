@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 @section('content-header')
+@if (Session::has('deleted_user'))
+{{session('deleted_user')}}
+
+@endif
 @include('includes.error_form')
 <!-- /.container-fluid -->
 <div class="container-fluid">
@@ -93,8 +97,8 @@
                                         src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}"
                                         alt=""></td>
                                 <td> {{$post->title}} </td>
-                                <td> {{$post->body}} </td>
-                                <td> {{$post->category_id ? $post->category_id : 'Uncategorized'}} </td>
+                                <td> {{str_limit($post->body, 10)}} </td>
+                                <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                                 <td> {{$post->user->name}} </td>
                                 <td> {{$post->created_at->toCookieString()}} </td>
                                 <td> {{$post->updated_at->diffForHumans()}} </td>
