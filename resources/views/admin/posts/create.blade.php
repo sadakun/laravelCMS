@@ -28,8 +28,8 @@
                 {!! Form::open(['method'=>'POST','action'=>'AdminPostsController@store','files'=>true]) !!}
                 <div class="card-body">
                     <div class="form-group">
-                        {!! Form::label('title','Fullname') !!}
-                        {!! Form::text('title',null , ['class'=>'form-control','placeholder'=>'Enter Your Fullname'])
+                        {!! Form::label('title','Title') !!}
+                        {!! Form::text('title',null , ['class'=>'form-control','placeholder'=>'Enter Post Title '])
                         !!}
                         @error('title')
                         <div class="error" style="color:tomato">{{ "*".$message }}</div>
@@ -38,16 +38,13 @@
 
                     <div class="form-group">
                         {!! Form::label('category_id','Category') !!}
-                        {!! Form::select('category_id', array(1=>'Active', 0=>'Not Active'),
-                        0,['class'=>'form-control']) !!}
+                        {!! Form::select('category_id', [''=>'Choose Categories'] + $categories,
+                        null,['class'=>'form-control']) !!}
                         @error('category_id')
                         <div class="error" style="color:tomato">{{ "*".$message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        {!! Form::label('user_id','Author') !!}
-                        {!! Form::select('user_id', array(''=>'options'), null, ['class'=>'form-control']) !!}
-                    </div>
+
                     <div class="form-group">
                         {!! form::label('photo_id','Image') !!}
                         {!! form::file('photo_id',['class'=>'form-control']) !!}
