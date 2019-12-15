@@ -190,9 +190,9 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-alt"></i>
+                <i class="nav-icon fas fa-user-circle"></i>
                 <p>
-                  User Panel
+                  User
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -215,9 +215,9 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-alt"></i>
+                <i class="nav-icon fas fa-sign"></i>
                 <p>
-                  Post Panel
+                  Post
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -238,6 +238,32 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-boxes"></i>
+                <p>
+                  Category
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('categories.index')}}" class="nav-link">
+                    <i class="fas fa-circle nav-icon"></i>
+                    <p>All Categories</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-circle nav-icon"></i>
+                    <p>Add Categories</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <li class="nav-item">
               <a href="../widgets.html" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>

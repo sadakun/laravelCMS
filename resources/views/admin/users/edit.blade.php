@@ -165,4 +165,5 @@
         </div>
     </div>
     <!-- /.row -->
-    @endsection
+</div>
+@endsection
