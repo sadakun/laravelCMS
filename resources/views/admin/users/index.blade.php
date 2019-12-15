@@ -63,7 +63,7 @@
                             <tr>
                                 <td> {{$user->id}} </td>
                                 <td><img height="50"
-                                        src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}"
+                                        src="{{$user->photo ? $user->photo->file : asset('/images/img/default-profile.png')}}"
                                         alt="User profile picture">
                                 </td>
                                 <td> {{$user->name}} </td>

@@ -42,7 +42,7 @@
                                 <div class="card-body p-0">
                                     <div class="text-center">
                                         <img class=" img-fluid img-thumbnail"
-                                            src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}"
+                                            src="{{$user->photo ? $user->photo->file : asset('/images/img/default-profile.png')}}"
                                             alt="User profile picture">
                                     </div>
                                 </div>
