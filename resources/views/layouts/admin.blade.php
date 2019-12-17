@@ -13,6 +13,7 @@
   <!-- Theme style -->
   {{-- <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}"> --}}
   <!-- Styles -->
+  @yield('styles')
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -176,18 +177,23 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu"
-            data-accordion="true">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+            <!--dashboard sidebar -->
             <li class="nav-item has-treeview">
               <a href="{{ url('/admin') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
+                  <span class="right badge badge-danger">New</span>
                 </p>
               </a>
             </li>
+            <!--end dashboard sidebar -->
+
+            <!--user sidebar -->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user-circle"></i>
@@ -196,6 +202,7 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <!--user submenu-->
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('users.index')}}" class="nav-link">
@@ -212,7 +219,11 @@
                   </a>
                 </li>
               </ul>
+              <!--end user submenu-->
             </li>
+            <!--end user sidebar-->
+
+            <!--post sidebar-->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-sign"></i>
@@ -221,6 +232,7 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <!--post subemenu-->
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('posts.index')}}" class="nav-link">
@@ -237,7 +249,11 @@
                   </a>
                 </li>
               </ul>
+              <!--end post submenu-->
             </li>
+            <!--end post sidebar-->
+
+            <!--category sidebar-->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-boxes"></i>
@@ -246,6 +262,7 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <!--category submenu-->
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('categories.index')}}" class="nav-link">
@@ -262,17 +279,39 @@
                   </a>
                 </li>
               </ul>
+              <!--end category submenu-->
             </li>
+            <!--end category sidebar-->
 
+            <!--media sidebar-->
             <li class="nav-item">
-              <a href="../widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-photo-video"></i>
                 <p>
-                  Widgets
-                  <span class="right badge badge-danger">New</span>
+                  Media
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <!--media subemnu-->
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('media.index')}}" class="nav-link">
+                    <i class="fas fa-circle-notch nav-icon"></i>
+                    <p>Show All Media</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('media.create')}}" class="nav-link">
+                    <i class="fas fa-circle-notch nav-icon"></i>
+                    <p>Upload Media</p>
+                  </a>
+                </li>
+              </ul>
+              <!--end media submenu-->
             </li>
+            <!--end media sidebar-->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -311,9 +350,11 @@
   </div>
   <!-- ./wrapper -->
 
+
+  <!-- Scripts -->
+  @yield('scripts')
   <!-- jQuery -->
   <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-
   <!-- Bootstrap 4 -->
   <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <!-- AdminLTE App -->

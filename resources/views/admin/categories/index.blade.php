@@ -16,17 +16,25 @@
 </div>
 @endsection
 @section('content')
-<!-- Default box -->
-<!-- /.row -->
+<!-- /.container -->
 <div class="container-fluid">
+    <!-- /.container row -->
     <div class="row mb-2">
+        <!-- /.container column-->
         <div class="col-12">
+            <!-- /.outer card-->
             <div class="card">
+                <!-- /.outer card body -->
                 <div class="card-body">
+                    <!-- /.middle card row -->
                     <div class="row mb-2">
-                        <!-- col left -->
+                        <!-- /.middle card column-->
+
+                        <!--inner card col left -->
                         <div class="col-4">
+                            <!-- /.inner card left -->
                             <div class="card">
+                                <!-- /.left card header -->
                                 <div class="card-header">
                                     <h3 class="card-title">New Categories</h3>
 
@@ -39,7 +47,11 @@
                                             <i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
+                                <!-- /.end left card header-->
+
+                                <!-- /.left card body-->
                                 <div class="card-body">
+                                    <!-- /.left form -->
                                     {!!
                                     Form::open(['method'=>'POST','action'=>'AdminCategoriesController@store'])
                                     !!}
@@ -54,17 +66,23 @@
                                     </div>
 
                                 </div>
+                                <!-- /.left footer -->
                                 <div class="card-footer">
                                     {!! Form::submit('Create',['class'=>'btn btn-primary float-right']) !!}
                                     {!! Form::close() !!}
                                 </div>
+                                <!-- /.end left form-->
+                                <!-- /.end left footer-->
                             </div>
+                            <!-- /.end left card -->
                         </div>
+                        <!-- /.end inner left card -->
 
-                        <!-- col right -->
-
+                        <!--/.inner card col right-->
                         <div class="col-8">
+                            <!-- /.inner card right -->
                             <div class="card">
+                                <!-- /.right card header -->
                                 <div class="card-header">
                                     <h3 class="card-title">CATEGORIES TABLE</h3>
 
@@ -80,8 +98,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.card-header -->
+                                <!-- /.end right header -->
+
+                                <!-- /.right card body-->
                                 <div class="card-body table-responsive p-0">
+                                    <!-- /.right card table-->
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -111,16 +132,23 @@
                                             @endif
                                         </tbody>
                                     </table>
+                                    <!-- /.end right card table-->
                                 </div>
-                                <!-- /.card-body -->
+                                <!-- /.end right card body -->
                             </div>
-                            <!-- /.card -->
+                            <!-- /.end right card -->
                         </div>
+                        <!-- /.end middle card column-->
                     </div>
+                    <!-- /.end middle card row -->
                 </div>
+                <!-- /.end outer card body -->
             </div>
+            <!-- /.end outer card-->
         </div>
+        <!-- /.end container column-->
     </div>
+    <!-- /.end container row -->
 </div>
-<!-- /.row -->
+<!-- /.end container -->
 @endsection
