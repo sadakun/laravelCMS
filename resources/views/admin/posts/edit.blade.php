@@ -86,9 +86,7 @@
                             <div class="card">
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                {!! Form::model($post, ['method'=>'PATCH','action'=>['AdminPostsController@update',
-                                $post->id],'files'=>true])
-                                !!}
+                                {!! Form::model($post, ['method'=>'PATCH','action'=>['AdminPostsController@update', $post->id],'files'=>true]) !!}
                                 <div class="card-body">
                                     <div class="form-group">
                                         {!! Form::label('title','Title') !!}

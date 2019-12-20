@@ -51,10 +51,10 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Active</th>
+                                <th>Status</th>
                                 <th>Created</th>
                                 <th>Updated</th>
-                                <th>More Info</th>
+                                <th>More</th>
                             </tr>
                         </thead>
                         <tbody>

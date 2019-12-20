@@ -85,7 +85,9 @@
                                 <th>Author</th>
                                 <th>Created</th>
                                 <th>Updated</th>
-                                <th>More Info</th>
+                                <th>Comments</th>
+                                <th>View</th>
+                                <th>More</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,6 +104,8 @@
                                 <td> {{$post->user->name}} </td>
                                 <td> {{$post->created_at->toCookieString()}} </td>
                                 <td> {{$post->updated_at->diffForHumans()}} </td>
+                                <td><a href="{{route('comments.index')}}">Find Comment</a></td>
+                                <td><a href="{{route('home.post',$post->id)}}">Show Post</a></td>
                                 <td>
                                     <a href="{{route('posts.edit', $post->id)}}">
                                         <button type="submit" class="btn btn-block btn-sm btn-outline-primary">

@@ -31,7 +31,7 @@
                         <!-- /.middle card column-->
 
                         <!--inner card col left -->
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <!-- /.inner card left -->
                             <div class="card">
                                 <!-- /.left card header -->
@@ -79,7 +79,7 @@
                         <!-- /.end inner left card -->
 
                         <!--/.inner card col right-->
-                        <div class="col-8">
+                        <div class="col-md-8">
                             <!-- /.inner card right -->
                             <div class="card">
                                 <!-- /.right card header -->

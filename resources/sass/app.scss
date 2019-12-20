@@ -15,3 +15,13 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+.toggle-reply {
+
+    margin-left: 40px;
+    margin-top: -7px;
+}
+
+.comment-reply {
+    display: none;
+}

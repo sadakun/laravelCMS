@@ -39,7 +39,7 @@
                     <div class="user-block">
                         <img class="img-circle" src="{{$post->user->photo->file}}" alt="User Image">
                         <span class="username"><a href="{{route('posts.edit',$post->id)}}">{{$post->user->name}}</a></span>
-                        <span class="description">Shared publicly - {{$post->created_at}}</span>
+                        <span class="description">Shared publicly - {{$post->created_at->format('d, M Y g:i a')}}</span>
                     </div>
                     <!-- /.user-block -->
 
@@ -53,7 +53,7 @@
                 <!-- /.card-header-post -->
                 
                 <!-- card-body-post -->
-                <div class="card-body">
+                <div class="card-body border">
                     <!-- body-post-images -->
                     <div class="text-center">
                         <img class="img-fluid rounded-top pad" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt="Photo">
@@ -154,7 +154,7 @@
                 @endif
                 <!-- /.card-footer-posted-comment --> --}}
                 @foreach ($comments as $comment)
-                <div class="card-footer card-comments pb-1">
+                <div class="card-footer card-comments pb-1 border border-0">
                     <div class="card-comment border border-0">
                       <!-- User image -->
                       <img class="img-circle img-sm" src="{{$comment->photo}}" alt="User Image">
@@ -162,9 +162,9 @@
                         <div class="comment-text">
                             <span class="username">
                                 {{$comment->author}}
-                            <span class="text-muted float-right">{{$comment->created_at}}</span>
+                            <span class="text-muted float-right">{{$comment->created_at->format('g:i a').", ".$comment->created_at->diffForHumans()}}</span>
                             </span><!-- /.username -->
-                            <div class="border border-1 rounded bg-olive">
+                            <div class="">
 
                             
                             <span class="comment-tex-body">
@@ -176,30 +176,28 @@
                     </div>
                     <!-- /.card-comment -->
                     <div class="comment-reply-container">
- 
                         <span class="toggle-reply text-muted btn btn-sm border">Reply</span>
-         
                         <div class="comment-reply">
                             @foreach($comment->replies as $reply)
-                            <div class="card-footer card-comments ml-4 border border-0 bg-light">
-                                <div class="card-comment">
+                            <div class="card-footer card-comments pb-0 ml-4 border border-0 bg-light">
+                                {{-- <div class="card-comment"> --}}
                                 <!-- User image -->
                                 <img class="img-circle img-sm" src="{{$reply->photo}}" alt="User Image">
                 
                                     <div class="comment-text">
                                         <span class="username">
-                                            {{$reply->author}} <i class="fas fa-reply"></i>
-                                        <span class="text-muted float-right">{{$reply->created_at}}</span>
+                                            {{$reply->author}}
+                                        <span class="text-muted float-right">{{$reply->created_at->format('g:i a').", ".$reply->created_at->diffForHumans()}}</span>
                                         </span><!-- /.username -->
                                         {{$reply->body}}                              
                                     </div>
                                 <!-- /.comment-text -->
-                                </div>
+                                {{-- </div> --}}
                                 <!-- /.card-comment -->
                             </div>
                             @endforeach
                             <!-- reply-form -->
-                            <div class="form-group ml-4">
+                            <div class="form-group mt-2 ml-4">
                             {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply','files'=>true]) !!}
                             <!-- form-message -->
                             <img class="img-circle img-sm" src="{{Auth::user()->photo->file}}" alt="Alt Text">
