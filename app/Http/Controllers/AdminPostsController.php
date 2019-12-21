@@ -135,9 +135,10 @@ class AdminPostsController extends Controller
     public function post($id)
     {
         $post = Post::findOrFail($id);
+        $allPost = Post::all();
         $comments = $post->comments()->whereStatus(1)->get();
 
         $categories = Category::all();
-        return view('post', compact('post', 'comments','categories'));
+        return view('post', compact('post', 'comments','categories','allPost'));
     }
 }

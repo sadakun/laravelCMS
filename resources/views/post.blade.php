@@ -27,6 +27,7 @@
 <div class="container">
     <!-- row -->
     <div class="row">
+
         <!--Left-->
         <!-- col-md-8 -->
         <div class="col-lg-8">
@@ -38,7 +39,7 @@
                     <!-- user-block -->
                     <div class="user-block">
                         <img class="img-circle" src="{{$post->user->photo->file}}" alt="User Image">
-                        <span class="username"><a href="{{route('posts.edit',$post->id)}}">{{$post->user->name}}</a></span>
+                        <span class="username"><a href="{{route('users.show',$post->user->id)}}">{{$post->user->name}}</a></span>
                         <span class="description">Shared publicly - {{$post->created_at->format('d, M Y g:i a')}}</span>
                     </div>
                     <!-- /.user-block -->
@@ -76,6 +77,7 @@
                 </div>
                 <!-- /.card-body -->
                 <!-- /.card-footer-posted-comment -->
+                @if(count($comments) > 0)
                 @foreach ($comments as $comment)
                 <div class="card-footer card-comments pb-1 border border-0">
                     <div class="card-comment border border-0">
@@ -97,11 +99,14 @@
                         </div>
                       <!-- /.comment-text -->
                     </div>
+
+                    <!-- nested comment -->
                     <!-- /.card-comment -->
                     <div class="comment-reply-container">
                         <span class="toggle-reply text-muted btn btn-sm border">Reply</span>
                         <div class="comment-reply">
                             @foreach($comment->replies as $reply)
+                            @if($reply->status == 1)
                             <div class="card-footer card-comments pb-0 ml-4 border border-0 bg-light">
                                 {{-- <div class="card-comment"> --}}
                                 <!-- User image -->
@@ -118,6 +123,7 @@
                                 {{-- </div> --}}
                                 <!-- /.card-comment -->
                             </div>
+                            @endif
                             @endforeach
                             <!-- reply-form -->
                             <div class="form-group mt-2 ml-4">
@@ -137,7 +143,9 @@
                 </div>
                 <!-- Comment -->
                 @endforeach
-                
+                @else
+                <p class="text-muted mt-1 mb-1 ml-2">No Comments yet <i class="far fa-frown text-muted"></i></p>
+                @endif
                 <!-- card-footer-comment -->
                 <div class="card-footer elevation-1">
                     <!-- comment-form -->
@@ -193,11 +201,13 @@
                     <!-- categories-list -->
                     <ul class="nav flex-column">
                         <!-- categories-list-item -->
+                        @foreach($categories as $category)
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <b>##</b> <span class="float-right badge bg-primary">31</span>
+                                <b>{{$category->name}}</b> <span class="float-right badge bg-primary">31</span>
                             </a>
                         </li>
+                        @endforeach
                         <!-- /.categories-list-item -->
                     </ul>
                     <!-- /.categories-list -->
@@ -208,20 +218,22 @@
             
             <!-- Recent Post -->
             <!-- info-box-recent-post --> 
+            @foreach($allPost as $eachPost)
             <div class="info-box">
                 <!-- recent-post-image -->
-                <img class="img-circle elevation-2" style="width:70px" src="#" alt="User Image">
+                <img class="img-circle elevation-2" style="width:70px" src="{{$eachPost->photo->file}}" alt="Post Image">
 
                 <!-- recent-post-content -->
                 <div class="info-box-content">
                     <!-- recent-post-title -->
-                    <span class="info-box-text"><a href="#">##</a></span>
+                    <span class="info-box-text"><a href="{{route('home.post',$eachPost->id)}}">{{$eachPost->title}}</a></span>
 
                     <!-- recent-post-category -->
-                    <span class="info-box-number">##</span>
+                    <span class="info-box-number">{{$eachPost->category->name}}</span>
                 </div>
                 <!-- /.recent-post-content -->
             </div>
+            @endforeach
             <!-- /.info-box-recent-post --> 
             
         </div>

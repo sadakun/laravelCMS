@@ -55,7 +55,7 @@
                                 <th>Status</th>
                                 <th>Created</th>
                                 <th>Updated</th>
-                                <th>More</th>
+                                <th colspan="2" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,9 +74,16 @@
                                 <td> {{$user->created_at->toCookieString()}} </td>
                                 <td> {{$user->updated_at->diffForHumans()}} </td>
                                 <td>
+                                    <a href="{{route('users.show',$user->id)}}">
+                                        <button type="submit" class="border border-0" data-toggle="tooltip" title="Looking for his/her post?">
+                                            <i class='far fa-comment-alt fa-2x text-olive'></i>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="{{route('users.edit', $user->id)}}">
-                                        <button type="submit" class="btn btn-block btn-sm btn-outline-primary" data-toggle="tooltip" title="Edit more?">
-                                            <i class='fas fa-tools fa-2x text-default'></i>
+                                        <button type="submit" class="border border-0" data-toggle="tooltip" title="Edit more?">
+                                            <i class='fas fa-tools fa-2x text-danger'></i>
                                         </button>
                                     </a>
                                 </td>
