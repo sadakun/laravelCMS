@@ -85,9 +85,9 @@
                                 <th>Author</th>
                                 <th>Created</th>
                                 <th>Updated</th>
-                                <th>Comments</th>
-                                <th>View</th>
-                                <th>More</th>
+                                <th colspan="3" class="text-center">Action</th>
+                                {{-- <th>View</th>
+                                <th>More</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -104,12 +104,24 @@
                                 <td> {{$post->user->name}} </td>
                                 <td> {{$post->created_at->toCookieString()}} </td>
                                 <td> {{$post->updated_at->diffForHumans()}} </td>
-                                <td><a href="{{route('comments.index')}}">Find Comment</a></td>
-                                <td><a href="{{route('home.post',$post->id)}}">Show Post</a></td>
+                                <td>
+                                    <a href="{{route('comments.show',$post->id)}}">
+                                        <button type="submit" class="border border-0" data-toggle="tooltip" title="Look Comments?">
+                                            <i class='far fa-comment-alt fa-2x text-olive'></i>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{route('home.post',$post->id)}}">
+                                        <button type="submit" class="border border-0" data-toggle="tooltip" title="View Post?">
+                                            <i class='fas fa-binoculars fa-2x text-olive'></i>
+                                        </button>
+                                    </a>
+                                </td>
                                 <td>
                                     <a href="{{route('posts.edit', $post->id)}}">
-                                        <button type="submit" class="btn btn-block btn-sm btn-outline-primary">
-                                            <i class='fas fa-info'></i>
+                                        <button type="submit"class="border border-0" data-toggle="tooltip" title="Edit More?">
+                                            <i class='fas fa-tools fa-2x text-danger'></i>
                                         </button>
                                     </a>
                                 </td>
@@ -126,4 +138,13 @@
     </div>
 </div>
 <!-- /.row -->
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
 @endsection

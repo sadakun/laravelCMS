@@ -186,7 +186,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
 
             <!--dashboard sidebar -->
-            <li class="nav-item has-treeview">
+            <li class="nav-item">
               <a href="{{ url('/admin') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Dashboard</p>
@@ -251,16 +251,25 @@
             <!--end post sidebar-->
 
             <!--comment sidebar -->
-            <li class="nav-item has-treeview">
+            <li class="nav-item">
               <a href="{{route('comments.index')}}" class="nav-link">
-                <i class="nav-icon far fa-comments"></i>
-                <p>All Comments</p>
+                <i class="nav-icon fas fa-comment-alt"></i>
+                <p>Comments</p>
+              </a>
+            </li>
+            <!--end comment sidebar-->
+
+            <!--reply sidebar -->
+            <li class="nav-item">
+              <a href="{{route('replies.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-comment-dots"></i>
+                <p>Replies</p>
               </a>
             </li>
             <!--end comment sidebar-->
 
             <!--category sidebar -->
-            <li class="nav-item has-treeview">
+            <li class="nav-item">
               <a href="{{route('categories.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-boxes"></i>
                 <p>Categories</p>
@@ -335,7 +344,7 @@
 
 
   <!-- Scripts -->
-  @yield('scripts')
+  
   <!-- jQuery -->
   <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
   <!-- Bootstrap 4 -->
@@ -359,6 +368,7 @@ $('.menu-open').find('a').each(function() {
     }
 });
   </script>
+  @yield('scripts')
 </body>
 
 </html>

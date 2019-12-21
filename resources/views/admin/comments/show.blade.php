@@ -39,29 +39,29 @@
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
-                        @if (count($comments) > 0)
+                        @if(count($comments) > 0)
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Picture</th>
                                 <th style="width:15%">Title</th>
-                                <th>Author</th>
+                                <th>Commented</th>
                                 <th>Email</th>
                                 <th>Body</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 {{-- <th>Status</th>
                                 <th>Delete</th> --}}
-                                <th colspan="4" class="text-center">Action</th>
+                                <th colspan="3" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            @foreach ($comments as $comment) 
+                            @foreach($comments as $comment)
+                           
                             <tr>
                                 <td> {{$comment->id}} </td>
                                 <td>
-                                    <img height="50" src="{{$comment ? $comment->photo : asset('/images/img/default-profile.png')}}" alt="User profile picture">
+                                    <img height="50" src="{{$comment->post->photo ? $comment->post->photo->file : asset('/images/img/default-profile.png')}}" alt="User profile picture">
                                 </td>
                                 <td> {{$comment->post->title}} </td>
                                 <td> {{$comment->author}} </td>
@@ -69,13 +69,7 @@
                                 <td> {{$comment->body}} </td>
                                 <td> {{$comment->created_at->toCookieString()}} </td>
                                 <td> {{$comment->updated_at->diffForHumans()}} </td>
-                                <td>
-                                    <a href="{{route('replies.show',$comment->id)}}">
-                                        <button type="submit" class="border border-0" data-toggle="tooltip" title="Looking for replies?">
-                                            <i class='far fa-comment-alt fa-2x text-olive'></i>
-                                        </button>
-                                    </a>
-                                </td>
+                                <div class="btn-gorup">
                                 <td>
                                     @if ($comment->status == 1)
                                     
@@ -116,7 +110,7 @@
 
                                     {!! Form::close() !!}
                                 </td>    
-                                                        
+                            </div>                            
                             </tr>
                         </tbody>
                         @endforeach

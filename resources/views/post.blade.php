@@ -75,84 +75,7 @@
                     <!-- /.body-post-btn -->
                 </div>
                 <!-- /.card-body -->
-
-                {{-- <!-- Posted Comments -->
-                <!-- card-footer-posted-comment -->
-                @if(count($comments) > 0)
-                <div class="card-footer card-posted-comments">
-                    @foreach ($comments as $comment)
-                    <!-- posted-comments-content -->
-                    <div class="card-comment-container">
-                        <!-- comment-user-photo -->
-                        <div class="img-push pr-5">
-                            <img class="img-circle img-sm" src="{{$comment->photo}}" alt="User Image">
-                        </div>
-                        <!-- comment-body -->
-                        <div class="comment-text">
-                            <div class="comment-user">
-                                <!-- comment-user-name -->
-                                <span class="use-name">
-                                    <b>{{$comment->author}}</b>
-                                </span>
-
-                                <!-- comment-date -->
-                                <small class="text-muted float-right">{{$comment->created_at}}</small>
-                            </div>
-                            <!-- comment-message -->
-                            <span class="comment-body text-muted">
-                                {{$comment->body}}
-                            </span>
-
-                            <!-- reply-form -->
-                            {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply','files'=>true]) !!}
-                                <!-- form-message -->
-                                <div class="img-push">
-                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                                    {!! Form::text('body',null , ['id'=>"replyBtn$comment->id",'autocomplete'=>'off','class'=>'form-control form-control-sm','placeholder'=>'Press enter to reply']) !!}
-                                </div>
-                                <!-- /.form-message -->
-                            {!! Form::close() !!}
-                            <!-- /.reply form -->
-                        </div>
-                        <!-- /.comment-body -->
-
-                        @if(count($comment->replies) > 0)
-                        <!--Nested Comments-->
-                        @foreach($comment->replies as $replies)
-                        <!-- card-replies-content -->
-                        <div class="card-comment ml-4 pb-2">
-                            <!-- reply-user-photo -->
-                            <img class="img-circle img-sm" src="{{$replies->photo}}" alt="User Image">
-                            <!-- reply-body -->
-                            <div class="comment-text">
-                                <div class="username">
-                                    <!-- reply-user-name -->
-                                    <b>{{$replies->author}}</b>
-    
-                                    <!-- reply-date -->
-                                    <small class="text-muted float-right">{{$replies->created_at}}</small>
-                                </div>
-                                <!-- reply-message -->
-                                <span class="text-muted">
-                                    {{$replies->body}}
-                                </span>
-                                <!-- /.reply-body -->
-                            </div>
-                            <!-- /.comment-text -->
-                        </div>
-                        @endforeach
-                        @endif
-
-                    </div>
-                    <!-- /.posted-comments-content -->
-                    @endforeach
-                </div>
-                @else
-                <div class="card-footer">
-                    <h5 class="card-footer-title">There's no comments yet</h5>
-                </div>
-                @endif
-                <!-- /.card-footer-posted-comment --> --}}
+                <!-- /.card-footer-posted-comment -->
                 @foreach ($comments as $comment)
                 <div class="card-footer card-comments pb-1 border border-0">
                     <div class="card-comment border border-0">
@@ -212,10 +135,9 @@
                         </div>
                     </div>
                 </div>
-
-                
                 <!-- Comment -->
                 @endforeach
+                
                 <!-- card-footer-comment -->
                 <div class="card-footer elevation-1">
                     <!-- comment-form -->

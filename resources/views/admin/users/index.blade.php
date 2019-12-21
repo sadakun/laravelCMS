@@ -44,6 +44,7 @@
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
+                        {{-- @if (count($users) < 0) --}}
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -58,7 +59,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if($users)
+                            {{-- @if($users) --}}
                             @foreach($users as $user)
                             <tr>
                                 <td> {{$user->id}} </td>
@@ -74,14 +75,16 @@
                                 <td> {{$user->updated_at->diffForHumans()}} </td>
                                 <td>
                                     <a href="{{route('users.edit', $user->id)}}">
-                                        <button type="submit" class="btn btn-block btn-sm btn-outline-primary">
-                                            <i class='fas fa-info'></i>
+                                        <button type="submit" class="btn btn-block btn-sm btn-outline-primary" data-toggle="tooltip" title="Edit more?">
+                                            <i class='fas fa-tools fa-2x text-default'></i>
                                         </button>
                                     </a>
                                 </td>
                             </tr>
                             @endforeach
-                            @endif
+                            {{-- @else
+                            <h1 class="text-center">NO USERS</h1>
+                            @endif --}}
                         </tbody>
                     </table>
                 </div>
@@ -92,4 +95,13 @@
     </div>
 </div>
 <!-- /.row -->
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
 @endsection
