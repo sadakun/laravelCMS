@@ -50,8 +50,6 @@
                                 <th>Body</th>
                                 <th>Created</th>
                                 <th>Updated</th>
-                                {{-- <th>Status</th>
-                                <th>Delete</th> --}}
                                 <th colspan="4" class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -100,7 +98,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{route('home.post', $comment->post->id)}}">
+                                    <a href="{{route('home.post', $comment->post->slug)}}">
                                         <button type="submit" class="border border-0" data-toggle="tooltip" title="View Post?">
                                             <i class='fas fa-binoculars fa-2x text-olive'></i>
                                         </button>
@@ -126,6 +124,13 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
+                <!-- card-footer -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        {{$comments->render()}}
+                    </ul>
+                </div>
+                <!-- /.card-footer -->
             </div>
             <!-- /.card -->
         </div>

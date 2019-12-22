@@ -121,6 +121,13 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
+                <!-- card-footer -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        {{$replies->render()}}
+                    </ul>
+                </div>
+                <!-- /.card-footer -->
             </div>
             <!-- /.card -->
         </div>

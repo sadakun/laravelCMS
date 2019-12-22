@@ -135,6 +135,13 @@
                                     <!-- /.end right card table-->
                                 </div>
                                 <!-- /.end right card body -->
+                                <!-- card-footer -->
+                                <div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        {{$categories->render()}}
+                                    </ul>
+                                </div>
+                                <!-- /.card-footer -->
                             </div>
                             <!-- /.end right card -->
                         </div>

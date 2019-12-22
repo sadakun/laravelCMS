@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Show All Comments</h1>
+            <h1>Comments</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -52,7 +52,7 @@
                                 <th>Updated</th>
                                 {{-- <th>Status</th>
                                 <th>Delete</th> --}}
-                                <th colspan="3" class="text-center">Action</th>
+                                <th colspan="4" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,7 +69,13 @@
                                 <td> {{$comment->body}} </td>
                                 <td> {{$comment->created_at->toCookieString()}} </td>
                                 <td> {{$comment->updated_at->diffForHumans()}} </td>
-                                <div class="btn-gorup">
+                                <td>
+                                    <a href="{{route('replies.show',$comment->id)}}">
+                                        <button type="submit" class="border border-0" data-toggle="tooltip" title="Looking for replies?">
+                                            <i class='far fa-comment-alt fa-2x text-olive'></i>
+                                        </button>
+                                    </a>
+                                </td>
                                 <td>
                                     @if ($comment->status == 1)
                                     
@@ -94,7 +100,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{route('home.post', $comment->post->id)}}">
+                                    <a href="{{route('home.post', $comment->post->slug)}}">
                                         <button type="submit" class="border border-0" data-toggle="tooltip" title="View Post?">
                                             <i class='fas fa-binoculars fa-2x text-olive'></i>
                                         </button>
@@ -109,8 +115,7 @@
                                     </div>
 
                                     {!! Form::close() !!}
-                                </td>    
-                            </div>                            
+                                </td>                               
                             </tr>
                         </tbody>
                         @endforeach
@@ -120,6 +125,13 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
+                <!-- card-footer -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        {{$comments->render()}}
+                    </ul>
+                </div>
+                <!-- /.card-footer -->
             </div>
             <!-- /.card -->
         </div>

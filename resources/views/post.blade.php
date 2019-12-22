@@ -83,6 +83,7 @@
                     <div class="card-comment border border-0">
                       <!-- User image -->
                       <img class="img-circle img-sm" src="{{$comment->photo}}" alt="User Image">
+                      {{-- <img class="img-circle img-sm" src="{{Auth::user()->gravatar}}" alt="User Image"> --}}
     
                         <div class="comment-text">
                             <span class="username">
@@ -226,7 +227,7 @@
                 <!-- recent-post-content -->
                 <div class="info-box-content">
                     <!-- recent-post-title -->
-                    <span class="info-box-text"><a href="{{route('home.post',$eachPost->id)}}">{{$eachPost->title}}</a></span>
+                    <span class="info-box-text"><a href="{{route('home.post',$eachPost->slug)}}">{{$eachPost->title}}</a></span>
 
                     <!-- recent-post-category -->
                     <span class="info-box-number">{{$eachPost->category->name}}</span>

@@ -50,8 +50,6 @@
                 <div class="card-body">
                     <div class="card-body table-responsive p-0">
                         <!-- /.card table-->
-
-
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -86,16 +84,18 @@
                                 @endif
                             </tbody>
                         </table>
-
-
                         <!-- /.end card table-->
                     </div>
                 </div>
                 <!-- /.end card-body -->
 
+                <!-- card-footer -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        {{$photos->render()}}
+                    </ul>
+                </div>
                 <!-- /.card-footer -->
-                <div class="card-footer"></div>
-                <!-- /.end card-footer -->
             </div>
             <!-- /.end card -->
         </div>

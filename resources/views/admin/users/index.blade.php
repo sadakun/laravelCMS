@@ -76,7 +76,7 @@
                                 <td>
                                     <a href="{{route('users.show',$user->id)}}">
                                         <button type="submit" class="border border-0" data-toggle="tooltip" title="Looking for his/her post?">
-                                            <i class='far fa-comment-alt fa-2x text-olive'></i>
+                                            <i class='fas fa-sign fa-2x text-olive'></i>
                                         </button>
                                     </a>
                                 </td>
@@ -96,6 +96,13 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
+                <!-- card-footer -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        {{$users->render()}}
+                    </ul>
+                </div>
+                <!-- /.card-footer -->
             </div>
             <!-- /.card -->
         </div>

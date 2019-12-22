@@ -112,7 +112,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{route('home.post',$post->id)}}">
+                                    <a href="{{route('home.post',$post->slug)}}">
                                         <button type="submit" class="border border-0" data-toggle="tooltip" title="View Post?">
                                             <i class='fas fa-binoculars fa-2x text-olive'></i>
                                         </button>
@@ -132,6 +132,14 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
+                <!-- card-footer -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        {{$posts->render()}}
+                    </ul>
+                </div>
+                <!-- /.card-footer -->
+                
             </div>
             <!-- /.card -->
         </div>
