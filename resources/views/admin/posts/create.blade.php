@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content-header')
 @include('includes.error_form')
+@include('includes.tinyeditor')
 <!-- /.container-fluid -->
 <div class="container-fluid">
     <div class="row mb-2">

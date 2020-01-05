@@ -65,7 +65,7 @@
 
                     <!-- body-post-paragraph -->
                     <span class="text-justify">
-                        <p>{{$post->body}}</p>
+                        <p>{!! $post->body !!}</p>
                     </span>
                     <!-- /.body-post-paragraph -->
 
