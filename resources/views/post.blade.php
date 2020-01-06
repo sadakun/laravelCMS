@@ -38,7 +38,7 @@
                 <div class="card-header">
                     <!-- user-block -->
                     <div class="user-block">
-                        <img class="img-circle" src="{{$post->user->photo->file}}" alt="User Image">
+                        <img class="img-circle" src="{{$post->user->photo ? $post->user->photo->file : $post->photoPlaceHolder()}}" alt="User Image">
                         <span class="username"><a href="{{route('users.show',$post->user->id)}}">{{$post->user->name}}</a></span>
                         <span class="description">Shared publicly - {{$post->created_at->format('d, M Y g:i a')}}</span>
                     </div>
@@ -57,9 +57,9 @@
                 <div class="card-body border">
                     <!-- body-post-images -->
                     <div class="text-center">
-                        <img class="img-fluid rounded-top pad" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt="Photo">
+                        <img class="img-fluid rounded-top pad" src="{{$post->photo ? $post->photo->file : $post->photoPlaceHolder()}}" alt="Photo">
 
-                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        <small><br>Someone famous in <cite title="Source Title">Source Title</cite></small>
                     </div>
                     <!-- /.body-images -->
 
@@ -130,7 +130,7 @@
                             <div class="form-group mt-2 ml-4">
                             {!! Form::open(['method'=>'POST','action'=>'CommentRepliesController@createReply','files'=>true]) !!}
                             <!-- form-message -->
-                            <img class="img-circle img-sm" src="{{Auth::user()->photo->file}}" alt="Alt Text">
+                            <img class="img-circle img-sm" src="{{Auth::user()->photo ? Auth::user()->photo->file : $post->photoPlaceHolder()}}" alt="Alt Text">
                                 <div class="img-push">
                                     <input type="hidden" name="comment_id" value="{{$comment->id}}">
                                     {!! Form::text('body',null , ['id'=>"replyBtn$comment->id",'autocomplete'=>'off','class'=>'form-control form-control-sm','placeholder'=>'Press enter to reply']) !!}
@@ -151,7 +151,7 @@
                 <div class="card-footer elevation-1">
                     <!-- comment-form -->
                     {!! Form::open(['method'=>'POST','action'=>'PostCommentsController@store']) !!}
-                    <img class="img-circle img-sm" src="{{Auth::user()->photo->file}}" alt="Alt Text">
+                    <img class="img-circle img-sm" src="{{Auth::user()->photo ? Auth::user()->photo->file : $post->photoPlaceHolder()}}" alt="Alt Text">
                     
                     <!-- comment-input-body -->
                     <div class="img-push">
@@ -222,7 +222,7 @@
             @foreach($allPost as $eachPost)
             <div class="info-box">
                 <!-- recent-post-image -->
-                <img class="img-circle elevation-2" style="width:70px" src="{{$eachPost->photo->file}}" alt="Post Image">
+                <img class="img-circle elevation-2" style="width:70px" src="{{$eachPost->photo ? $eachPost->photo->file : $post->photoPlaceHolder()}}" alt="Post Image">
 
                 <!-- recent-post-content -->
                 <div class="info-box-content">

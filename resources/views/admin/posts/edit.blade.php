@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content-header')
+@include('includes.tinyeditor')
 <!-- /.container-fluid -->
 <div class="container-fluid">
     <div class="row mb-2">
@@ -41,7 +42,7 @@
                                 <div class="card-body p-0">
                                     <div class="text-center">
                                         <img class=" img-fluid img-thumbnail"
-                                            src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}"
+                                            src="{{$post->photo ? $post->photo->file : $post->photoPlaceHolder()}}"
                                             alt="User profile picture">
                                     </div>
                                 </div>
@@ -116,7 +117,7 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('body','Description') !!}
-                                        {!! Form::textarea('body',null , ['class'=>'form-control','rows'=>3]) !!}
+                                        {!! Form::textarea('body',null , ['class'=>'form-control','rows'=>8]) !!}
                                         @error('body')
                                         <div class="error" style="color:tomato">{{ "*".$message }}</div>
                                         @enderror

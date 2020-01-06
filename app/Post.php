@@ -55,6 +55,6 @@ class Post extends Model
     }
     public function photoPlaceHolder()
     {
-        return "http://placehold.it/400x400";
+        return "http://placehold.it/700x400";
     }
 }

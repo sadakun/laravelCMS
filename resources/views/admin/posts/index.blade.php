@@ -94,10 +94,11 @@
                             <tr>
                                 <td> {{$post->id}} </td>
                                 <td><img height="50"
-                                        src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}"
+                                        src="{{$post->photo ? $post->photo->file : $post->photoPlaceHolder()}}"
                                         alt=""></td>
                                 <td> {{$post->title}} </td>
-                                <td> {{str_limit($post->body, 10)}} </td>
+                                <td> {!! str_limit($post->body, 10) !!} </td>
+                                
                                 <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                                 <td> {{$post->user->name}} </td>
                                 <td> {{$post->created_at->toCookieString()}} </td>
