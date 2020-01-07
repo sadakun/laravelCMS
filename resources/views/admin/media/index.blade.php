@@ -50,9 +50,19 @@
                 <div class="card-body">
                     <div class="card-body table-responsive p-0">
                         <!-- /.card table-->
+                        @if($photos)
+                        {!! Form::open(['method'=>'POST','action'=>'AdminMediasController@deleteMedia','files'=>true, 'class'=>'form-inline']) !!}
+                        <div class="form-group">
+                        {!! Form::select('checkBoxArray', ['delete'=>'Delete'], null,['value'=>'delete','class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                        {!! Form::submit('submit',['class'=>'btn btn-primary']) !!}
+                        </div>
+                        
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th><input type="checkbox" id="options"></th>
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Created</th>
@@ -62,10 +72,11 @@
                             </thead>
                             <tbody>
 
-                                @if($photos)
+                                
                                 @foreach($photos as $photo)
 
                                 <tr>
+                                    <td><input type="checkbox" name="checkBoxArray[]" value="{{$photo->id}}" class="checkBoxes"></td>
                                     <td>{{$photo->id}}</td>
                                     <td><img height="50" src="{{$photo->file}}" alt=""></td>
                                     <td>{{$photo->created_at ? $photo->created_at->diffForHumans() : 'No Date'}}
@@ -81,9 +92,11 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                @endif
+                                
                             </tbody>
                         </table>
+                        {!! Form::close() !!}
+                        @endif
                         <!-- /.end card table-->
                     </div>
                 </div>
@@ -104,4 +117,23 @@
     <!-- /.end container row -->
 </div>
 <!-- /.end container -->
+@endsection
+
+@section('scripts')
+<script>
+$(document).ready(function(){
+    $('#options').click(function(){
+        if(this.checked){
+            $('.checkBoxes').each(function(){
+                this.checked = true;
+            });
+        } else {
+            $('.checkBoxes').each(function(){
+                this.checked = false;
+            });
+        }
+
+    });
+});
+</script>
 @endsection

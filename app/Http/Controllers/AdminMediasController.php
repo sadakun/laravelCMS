@@ -14,7 +14,7 @@ class AdminMediasController extends Controller
      */
     public function index()
     {
-        $photos = Photo::paginate(2);
+        $photos = Photo::paginate(10);
         return view('admin.media.index', compact('photos'));
     }
 
@@ -38,4 +38,13 @@ class AdminMediasController extends Controller
         $photo->delete();
         return redirect('admin/media');
     }
+   public function deleteMedia(Request $request)
+   {
+       $photos = Photo::findOrFail($request->checkBoxArray);
+       foreach($photos as $photo){
+           $photo->delete();
+       }
+        // dd($request);
+        return redirect()->back();
+   }
 }

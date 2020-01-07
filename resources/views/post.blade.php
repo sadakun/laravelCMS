@@ -57,7 +57,7 @@
                 <div class="card-body border">
                     <!-- body-post-images -->
                     <div class="text-center">
-                        <img class="img-fluid rounded-top pad" src="{{$post->photo ? $post->photo->file : $post->photoPlaceHolder()}}" alt="Photo">
+                        <img class="img-fluid rounded-top pad" src="{{$post->photo ? $post->photo->file :  alt="Photo">
 
                         <small><br>Someone famous in <cite title="Source Title">Source Title</cite></small>
                     </div>

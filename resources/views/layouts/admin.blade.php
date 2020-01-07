@@ -13,7 +13,7 @@
   <!-- Theme style -->
   {{-- <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}"> --}}
   <!-- Styles -->
-  @yield('styles')
+  {{-- @yield('styles') --}}
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <!-- Font Awesome Icons -->
   {{-- <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}"> --}}
@@ -351,23 +351,31 @@
   <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-  <script>
-    var url = window.location;
-const allLinks = document.querySelectorAll('.nav-item a');
-const currentLink = [...allLinks].filter(e => {
-    return e.href == url;
-});
 
-currentLink[0].classList.add("active");
-currentLink[0].closest(".nav-treeview").style.display = "block ";
-currentLink[0].closest(".has-treeview").classList.add("menu-open");
-$('.menu-open').find('a').each(function() {
-    if (!$(this).parents().hasClass('active')) {
-        $(this).parents().addClass("active");
-        $(this).addClass("active");
-    }
-});
+  <script>
+      var url = window.location;
+      
+      const allLinks = document.querySelectorAll('.nav-item a');
+      
+      const currentLink = [...allLinks].filter(e => {
+          return e.href == url;
+      });
+
+      currentLink[0].classList.add("active");
+      currentLink[0].closest(".nav-treeview").style.display = "block ";
+      currentLink[0].closest(".has-treeview").classList.add("menu-open");
+      
+      $('.menu-open').find('a').each(function() {
+      
+          if (!$(this).parents().hasClass('active')) {
+      
+              $(this).parents().addClass("active");
+      
+              $(this).addClass("active");
+          }
+      });
   </script>
+
   @yield('scripts')
 </body>
 
