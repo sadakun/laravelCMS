@@ -23,9 +23,8 @@ Route::get('/post/{slug}', ['as' => 'home.post', 'uses' => 'AdminPostsController
 
 Route::group(['middleware' => 'admin'], function () {
 
-    Route::get('/admin', function () {
-        return view('admin.index');
-    });
+    Route::get('/admin', 'AdminDashboardController@index');
+    
     Route::resource('admin/users', 'AdminUsersController');
 
     Route::resource('admin/posts', 'AdminPostsController');

@@ -25,3 +25,27 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 .comment-reply {
     display: none;
 }
+
+// minimize/maximize panel
+.cards-actions {
+    margin-top: 0px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.cards-actions a {
+    color: #333;
+}
+
+.cards-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+}

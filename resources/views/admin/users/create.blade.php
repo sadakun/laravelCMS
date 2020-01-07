@@ -30,24 +30,21 @@
                 <div class="card-body">
                     <div class="form-group">
                         {!! Form::label('name','Fullname') !!}
-                        {!! Form::text('name',null , ['class'=>'form-control','placeholder'=>'Enter Your Fullname'])
-                        !!}
+                        {!! Form::text('name',null , ['class'=>'form-control','placeholder'=>'Enter Your Fullname']) !!}
                         @error('name')
                         <div class="error" style="color:red">{{ "*".$message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         {!! Form::label('email','Email Address') !!}
-                        {!! Form::email('email',null , ['class'=>'form-control','placeholder'=>'example@example.com'])
-                        !!}
+                        {!! Form::email('email',null , ['class'=>'form-control','placeholder'=>'example@example.com']) !!}
                         @error('email')
                         <div class="error" style="color:red">{{ "*".$message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         {!! Form::label('role_id','Role') !!}
-                        {!! Form::select('role_id', [''=>'Choose Options'] + $roles, null, ['class'=>'form-control'])
-                        !!}
+                        {!! Form::select('role_id', [''=>'Choose Options'] + $roles, null, ['class'=>'form-control']) !!}
                         @error('role_id')
                         <div class="error" style="color:red">{{ "*".$message }}</div>
                         @enderror
